@@ -372,9 +372,9 @@ static void collect_changes_cb(struct diff_queue_struct *q,
 			continue;
 		else {
 			FLEX_ALLOC_STR(entry, pathname, name);
-			hashmap_entry_init(entry, hash);
+			hashmap_entry_init(&entry->ent, hash);
 			entry->index = file_index = s->list->nr;
-			hashmap_add(&s->file_map, entry);
+			hashmap_add(&s->file_map, &entry->ent);
 
 			add_file_item(s->list, name);
 		}
